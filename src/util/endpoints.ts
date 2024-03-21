@@ -1,15 +1,23 @@
 export default {
+    /////////////////////////////
+    //Reference section
+    /////////////////////////////
     StockData: '/stocks',
     forex_pairs: '/forex_pairs',
     crypto: '/cryptocurrencies',
     etf: '/etf',
     indices: '/indices',
+    funds: '/funds',
+    bonds: '/bonds',
     exchanges: '/exchanges',
     crypto_exchanges: '/cryptocurrency_exchanges',
     technical_indicators: '/technical_indicators',
     symbol_search: '/symbol_search',
     earliest_timestamp: '/earliest_timestamp',
     market_state: '/market_state',
+    /////////////////////////////
+    //Core data section
+    /////////////////////////////
     TimeSeriesRequest: '/time_series',
     exchange_rate: '/exchange_rate',
     currency_conversion: '/currency_conversion',
@@ -21,6 +29,9 @@ export default {
     mm_mf: '/market_movers/mutual_funds',
     mm_forex: '/market_movers/forex',
     mm_crypto: '/market_movers/crypto',
+    /////////////////////////////
+    //Mutual funds section
+    /////////////////////////////
     mf_list: '/mutual_funds/list',
     mf_family: '/mutual_funds/family',
     mf_type: '/mutual_funds/type',
@@ -32,6 +43,9 @@ export default {
     mfw_composition: '/mutual_funds/world/composition',
     mfw_purchase: '/mutual_funds/world/purchase_info',
     mf_world_sust: '/mutual_funds/world/sustainability',
+    /////////////////////////////
+    //Fundamentals section
+    /////////////////////////////
     logo: '/logo',
     profile: '/profile',
     dividends: '/dividends',
@@ -47,9 +61,13 @@ export default {
     options_expiration: '/options/expiration',
     options_chain: '/options/chain',
     key_executives: '/key_executives',
-    tute_holders: '/institutional_holders',
+    institutional_holders: '/institutional_holders',
     fund_holders: '/fund_holders',
     direct_holders: '/direct_holders',
+    last_changes: '/last_changes/:endpoint',
+    /////////////////////////////
+    //Analysis section
+    /////////////////////////////
     earnings_estimate: '/earnings_estimate',
     revenue_estimate: '/revenue_estimate',
     eps_trend: '/eps_trend',
@@ -59,9 +77,18 @@ export default {
     price_target: '/price_target',
     ar_light: '/analyst_ratings/light',
     ar_us_equities: '/analyst_ratings/us_equities',
+    /////////////////////////////
+    //Websockets section
+    /////////////////////////////
     quotes_price: '/quotes/price',
+    /////////////////////////////
+    //Advanced section
+    /////////////////////////////
     complex_data: '/complex_data',
     api_usage: '/api_usage',
+    /////////////////////////////
+    //Technical indicators section
+    /////////////////////////////
     ad: '/ad',
     add: '/add',
     adosc: '/adosc',
