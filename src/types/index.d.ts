@@ -22,13 +22,26 @@ declare global {
     //          CLASSES
     //
     ///////////////////////////////////////////////////
-    export class TDQuery<T> {
-        _body: any;
-        _type: T | unknown;
-        constructor(body: T);
-        body(): typeof this._body;
-        type(): typeof this._type;
+    export class TDMethod<Q, R> {
+        _reqBody: Q | unknown;
+        _resBody: R | unknown;
+        constructor(reqBody: Q);
+        requestBody(): Q;
+        requestType(): typeof this._reqBody;
+        responseBody(): R;
+        responseType(): typeof this._resBody;
     }
+
+    export class TDMethodyWithPathParams<Q, R, P extends KVP> extends TDMethod<Q, R> {
+        _pathParams: P | unknown;
+        constructor(reqBody: Q, pathParams: P);
+        pathParams(): P;
+    }
+
+    export interface KVP {
+        [k: string]: any;
+    }
+
 
     ///////////////////////////////////////////////////
     //

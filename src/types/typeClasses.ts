@@ -1,3 +1,5 @@
+//import { TDQuery } from './';
+
 // testing out commonly used endpoints because it will be a grueling task to do all of them. Might cheat n use chatgpt :)
 export class StockData {
     body: StockData;
@@ -8,19 +10,11 @@ export class StockData {
     }
 }
 
-export class TimeSeries {
-    _body: TimeSeriesRequest;
-    _type: string;
-    constructor(data: TimeSeriesRequest) {
-        // this.type = 'TimeSeriesRequest';
-        this._body = data;
-        this._type = 'TimeSeriesRequest';
-        this.body();
-    }
-    body(): TimeSeriesRequest {
-        return this._body;
-    }
-    type(): string {
-        return this._type
-    }
+export class TimeSeries extends TDMethod<TimeSeriesRequest, TimeSeriesResponse> {
+
+}
+
+export {
+    TimeSeriesRequest,
+    TimeSeriesResponse
 }
