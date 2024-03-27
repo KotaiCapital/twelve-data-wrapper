@@ -36,5 +36,5 @@ export interface StockHolder {
     date_reported: string;
     shares: number;
     value: number;
-    percent_held: number;
+    percent_held: number | null;
 }
