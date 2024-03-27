@@ -1,18 +1,8 @@
-export interface OptionsExpirationRequest {
-    symbol: string;
-    exchange?: string;
-    mic_code?: string;
-    country?: string;
-}
+import { StockRequestParameters, StockResponseMeta } from "../Utils";
+
+export type OptionsExpirationRequest = StockRequestParameters
 
 export interface OptionsExpirationResponse {
-    meta: {
-        symbol: string;
-        name: string;
-        currency: string;
-        exchange: string;
-        mic_code: string;
-        exchange_timezone: string;
-    };
+    meta: StockResponseMeta;
     dates: string[];
 }

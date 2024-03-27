@@ -20,6 +20,8 @@ export interface StockRequestParametersDateIntervalWithRange extends StockReques
     range?: 'last'|'1m'|'3m'|'6m'|'ytd'|'1y'|'2y'|'5y'|'full';
 }
 
+export type StockReportingPeriod = 'annual' | 'quarterly';
+
 export interface StockResponseMeta {
     symbol: string;
     name: string;

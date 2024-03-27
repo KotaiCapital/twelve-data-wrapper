@@ -1,22 +1,11 @@
-export interface CashFlowRequest {
-    symbol: string;
-    exchange?: string;
-    mic_code?: string;
-    country?: string;
-    period?: string;
-    start_date?: string;
-    end_date?: string;
-    
-}
+import { StockResponseMeta, StockRequestParametersDateInterval, StockReportingPeriod } from "../Utils";
+
+export interface CashFlowRequest extends StockRequestParametersDateInterval {
+    period: StockReportingPeriod
+};
 
 export interface CashFlowResponse {
-    meta: {
-        symbol: string;
-        name: string;
-        currency: string;
-        exchange: string;
-        mic_code: string;
-        exchange_timezone: string;
+    meta: StockResponseMeta & {
         period: string;
     };
     cash_flow: {

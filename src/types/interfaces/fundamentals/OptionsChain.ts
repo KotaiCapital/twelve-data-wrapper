@@ -1,23 +1,13 @@
-export interface OptionsChainRequest {
-    symbol: string;
-    exchange?: string;
-    mic_code?: string;
-    country?: string;
+import { StockRequestParameters, StockResponseMeta } from "../Utils";
+
+export interface OptionsChainRequest extends StockRequestParameters {
     expiration_date?: string;
     option_id?: string;
     side?: string;
-    
 }
 
 export interface OptionsChainResponse {
-    meta: {
-        symbol: string;
-        name: string;
-        currency: string;
-        exchange: string;
-        mic_code: string;
-        exchange_timezone: string;
-    };
+    meta: StockResponseMeta;
     calls: OptionContract[];
     puts: OptionContract[];
 }

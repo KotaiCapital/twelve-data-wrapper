@@ -1,14 +1,8 @@
-import { StockResponseMeta } from "../Utils";
+import { StockResponseMeta, StockRequestParametersDateInterval, StockReportingPeriod } from "../Utils";
 
-export interface BalanceSheetRequest {
-    symbol: string;
-    exchange?: string;
-    mic_code?: string;
-    country?: string;
-    period?: string;
-    start_date?: string;
-    end_date?: string; 
-}
+export interface BalanceSheetRequest extends StockRequestParametersDateInterval {
+    period: StockReportingPeriod;
+};
 
 export interface BalanceSheetResponse {
     meta: StockResponseMeta & {

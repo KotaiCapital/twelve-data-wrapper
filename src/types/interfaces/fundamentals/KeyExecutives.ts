@@ -1,20 +1,9 @@
-export interface KeyExecutivesRequest {
-    symbol: string;
-    exchange?: string;
-    mic_code?: string;
-    country?: string;
-    
-}
+import { StockRequestParameters, StockResponseMeta } from "../Utils";
+
+export type KeyExecutivesRequest = StockRequestParameters;
 
 export interface KeyExecutivesResponse {
-    meta: {
-        symbol: string;
-        name: string;
-        currency: string;
-        exchange: string;
-        mic_code: string;
-        exchange_timezone: string;
-    };
+    meta: StockResponseMeta;
     key_executives: KeyExecutive[];
 }
 

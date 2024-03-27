@@ -1,14 +1,6 @@
-import { StockResponseMeta } from "../Utils";
+import { StockResponseMeta, StockRequestParametersDateIntervalWithRange } from "../Utils";
 
-export interface SplitsRequest {
-    symbol: string;
-    exchange?: string;
-    mic_code?: string;
-    country?: string;
-    range?: string;
-    start_date?: string;
-    end_date?: string;
-}
+export type SplitsRequest = StockRequestParametersDateIntervalWithRange;
 
 export interface SplitsResponse {
     meta: StockResponseMeta;
