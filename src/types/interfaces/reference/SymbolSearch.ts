@@ -1,5 +1,12 @@
+// For the HTTP route and API parameters
+export interface SymbolSearchRequest {
+    symbol: string; // Required parameter
+    outputsize?: number; // Optional, default 30, max 120
+    show_plan?: boolean; // Optional, default false
+}
+
 // For individual search result
-export interface SymbolSearchResult {
+interface SymbolSearchResult {
     symbol: string;
     instrument_name: string;
     exchange: string;
@@ -8,21 +15,21 @@ export interface SymbolSearchResult {
     instrument_type: string;
     country: string;
     currency: string;
+}
+
+interface SymbolSearchResultWithPlan extends SymbolSearchResult {
     access?: {
         global: string;
         plan: string;
     };
 }
 
-// For the HTTP route and API parameters
-export interface SymbolSearchRequest {
-    symbol: string; // Required parameter
-    outputsize?: number; // Optional, default 30, max 120
-    show_plan?: boolean; // Optional, default false
-}
+type SymbolSearchResponseWithoutPlan = SymbolSearchResult[];
 
-// The main interface for the API response
-export interface SymbolSearchResponse {
-    data: SymbolSearchResult[];
+// For the response with &show_plan=true
+interface SymbolSearchResponseWithPlan {
+    data: SymbolSearchResultWithPlan[];
     status: string;
 }
+
+export type SymbolSearchResponse = SymbolSearchResponseWithoutPlan | SymbolSearchResponseWithPlan;

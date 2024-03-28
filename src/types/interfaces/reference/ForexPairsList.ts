@@ -1,11 +1,3 @@
- // For the individual forex pair data and response keys
- export interface ForexPair {
-    symbol: string;
-    currency_group: "Major" | "Minor" | "Exotic" | "Exotic-Cross";
-    currency_base: string;
-    currency_quote: string;
-}
-
 // For the HTTP route and API parameters
 export interface ForexPairsRequest {
     symbol?: string; // Optional
@@ -14,3 +6,13 @@ export interface ForexPairsRequest {
     format?: 'JSON' | 'CSV'; // Optional
     delimiter?: string; // Optional
 }
+
+// For the individual forex pair data and response keys
+ interface ForexPair {
+    symbol: string;
+    currency_group: "Major" | "Minor" | "Exotic" | "Exotic-Cross";
+    currency_base: string;
+    currency_quote: string;
+}
+
+export type ForexPairsResponse = ForexPair[];

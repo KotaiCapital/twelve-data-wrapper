@@ -1,13 +1,15 @@
 // For the individual cryptocurrency pair data and response keys
-export interface CryptocurrencyPair {
+interface CryptocurrencyPair {
     symbol: string;
     available_exchanges: string[];
     currency_base: string;
     currency_quote: string;
 }
 
+export type CryptocurrenciesListResponse = CryptocurrencyPair[];
+
 // For the HTTP route and API parameters
-export interface CryptocurrenciesRequest {
+export interface CryptocurrenciesListRequest {
     symbol?: string; // Optional
     exchange?: string; // Optional
     currency_base?: string; // Optional

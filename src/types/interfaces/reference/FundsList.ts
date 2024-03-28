@@ -13,7 +13,7 @@ export interface FundsListRequest {
     outputsize?: number; // Optional
 }
 
-export interface FundsListResponseItem {
+interface FundsListResponseItem {
     symbol: string;
     name: string;
     country: string;

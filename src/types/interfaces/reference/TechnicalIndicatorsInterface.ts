@@ -1,3 +1,8 @@
+// For the HTTP route and API parameters
+export interface TechnicalIndicatorsRequest {
+    // No input parameters
+}
+
 // For individual parameter details
 interface ParameterDetails {
     default: string | number;
@@ -25,7 +30,7 @@ interface TintingValues {
 }
 
 // For individual technical indicator
-export interface TechnicalIndicator {
+interface TechnicalIndicator {
     enable: boolean;
     full_name: string;
     description: string;
@@ -34,11 +39,6 @@ export interface TechnicalIndicator {
     parameters: Record<string, ParameterDetails>;
     output_values: Record<string, OutputValues>;
     tinting?: TintingValues[];
-}
-
-// For the HTTP route and API parameters
-export interface TechnicalIndicatorsRequest {
-    // No input parameters
 }
 
 // The main interface for the API response
