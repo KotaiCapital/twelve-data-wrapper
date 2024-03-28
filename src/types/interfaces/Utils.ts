@@ -38,3 +38,5 @@ export interface StockHolder {
     value: number;
     percent_held: number | null;
 }
+
+export type AnalystRatingChangeType = 'Maintains' | 'Upgrades' | 'Downgrades' | 'Initiates' | 'Reiterates';
