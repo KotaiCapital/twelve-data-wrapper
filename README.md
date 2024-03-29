@@ -10,3 +10,9 @@ This wrapper provides an option I felt was missing in the official/unofficial Tw
 - Implement all available endpoints.
 - NPM Registry.
 - Websocket support
+
+## Usage
+
+## Testing
+
+Set the environment variable TWELVEDATA_API_KEY. This can be fed through a .env file

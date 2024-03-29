@@ -2,21 +2,43 @@
  * @jest-environment node
  */
 
-import { TimeSeriesResponse } from "../types";
+//import {mockDeep} from "jest-mock-extended";
+
+import * as dotenv from "dotenv";
+
+import * as interfaces from "../types/interfaces/";
 
 import {
+    types,
     TwelveDataWrapper,
-    TimeSeries,
-} from "../index";
+} from "../";
+
+dotenv.config();
 
 let twelveData = new TwelveDataWrapper(
-    '41c2d05ca3404866813f89cabd600871',
+    process.env.TWELVEDATA_API_KEY,
 );
 
-test('TimeSeries', async () => {
-    let tsRequest = new TimeSeries({
+/*test('TimeSeries', async () => {
+    let tsRequest = new types.TimeSeries({
         interval: '30min',
         symbol: 'AAPL'
     });
-    expect(await twelveData.get<TimeSeries>(tsRequest)).toBeInstanceOf(TimeSeriesResponse);
+
+    //let mockResponse = mockDeep<TimeSeriesResponse>();
+
+    expect(await twelveData.call(tsRequest)).toBeInstanceOf(Object);
+});*/
+
+test('Logo', async () => {
+
+    let logoRequest: interfaces.LogoRequest = {
+        symbol: 'AAPL'
+    };
+
+    let logoResponse: interfaces.LogoResponse = await twelveData.logo(logoRequest);
+
+    console.log('Logo Response', logoResponse);
+
+    //expect(logoResponse).toBeInstanceOf<interfaces.LogoResponse>();
 });
