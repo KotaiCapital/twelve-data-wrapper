@@ -1,10 +1,8 @@
-import builder from './util/URLHelper.js';
-import * as e from './util/endpoints.js';
-import {StockData, TimeSeries} from './types/typeClasses.js'
-
-
-
-const ep = e.default
+import builder from './util/URLHelper';
+import endpoints from './util/endpoints';
+import * as types from './types/typeClasses'
+import * as apiInterfaces from './types/interfaces';
+import { TDMethod, TDMethodyWithPathParams } from './types/interfaces/Method';
 
 class TwelveDataWrapper {
     api_key: string
@@ -49,7 +47,7 @@ class TwelveDataWrapper {
         }
     }
 
-    async get<T>(query: any):Promise<any | string> {
+    /*async get<T>(query: any):Promise<any | string> {
         if(!this.api_key) {
             console.log('Please define an api key');
             return 'Please define an api key'
@@ -67,6 +65,33 @@ class TwelveDataWrapper {
         const output = await res.json();
         if(output.status !== "ok") throw new Error('Could not GET TwelveData resource');
         return {...output} as typeof query._type;
+    }*/
+
+    async call<Q, R>(query: TDMethod<Q, R>): Promise<R> {
+        if (!this.api_key) {
+            console.log('Please define an api key');
+            throw new Error('Please define an api key');
+        }
+
+        let matchingEndpoint = query.path();
+        if (!matchingEndpoint) {
+            throw new Error(`Cannot locate this endpoint.`);
+        }
+
+        const URL = `${this.baseURL}${matchingEndpoint}${builder(query.requestBody(), this.api_key)}`;
+        console.log(`URL: ${URL}`);
+        const res = await fetch(URL);
+
+        const output = await res.json();
+        //if (output.status !== "ok") throw new Error('Could not GET TwelveData resource');
+
+        const castOutput =  output as R;
+        query.setResponseBody(castOutput);
+        return castOutput;
+    }
+
+    async logo(param: apiInterfaces.LogoRequest): Promise<apiInterfaces.LogoResponse> {
+        return this.call(new TDMethod<apiInterfaces.LogoRequest, apiInterfaces.LogoResponse>(param, endpoints.logo));
     }
 }
 // example:
@@ -74,16 +99,16 @@ class TwelveDataWrapper {
 const new_api = new TwelveDataWrapper(
     '41c2d05ca3404866813f89cabd600871',
   )
-  const example = new TimeSeries({
+  const example: apiInterfaces.TimeSeriesRequest = {
       interval: '30min',
       symbol: 'AAPL'
-  })
+  };
   // console.log(example)
-  new_api.get<TimeSeries>(example).then(out => {
+  /*new_api.get<types.TimeSeries>(example).then(out => {
     console.log(out)
-  })
+  })*/
 
 export {
+    types,
     TwelveDataWrapper,
-    TimeSeries,
 };
