@@ -1,6 +1,5 @@
 import builder from './util/URLHelper';
 import endpoints from './util/endpoints';
-import * as types from './types/typeClasses'
 import * as apiInterfaces from './types/interfaces';
 import { TDMethod, TDMethodyWithPathParams } from './types/interfaces/Method';
 
@@ -94,21 +93,8 @@ class TwelveDataWrapper {
         return this.call(new TDMethod<apiInterfaces.LogoRequest, apiInterfaces.LogoResponse>(param, endpoints.logo));
     }
 }
-// example:
-//
-const new_api = new TwelveDataWrapper(
-    '41c2d05ca3404866813f89cabd600871',
-  )
-  const example: apiInterfaces.TimeSeriesRequest = {
-      interval: '30min',
-      symbol: 'AAPL'
-  };
-  // console.log(example)
-  /*new_api.get<types.TimeSeries>(example).then(out => {
-    console.log(out)
-  })*/
 
 export {
-    types,
+    apiInterfaces as types,
     TwelveDataWrapper,
 };
