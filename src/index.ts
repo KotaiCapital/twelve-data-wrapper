@@ -79,7 +79,6 @@ class TwelveDataWrapper {
         }
 
         const URL = `${this.baseURL}${matchingEndpoint}${builder(query.requestBody(), this.api_key)}`;
-        console.log(`URL: ${URL}`);
         const res = await fetch(URL);
 
         const output = await res.json();
