@@ -82,7 +82,6 @@ class TwelveDataWrapper {
         const res = await fetch(URL);
 
         const output = await res.json();
-        //if (output.status !== "ok") throw new Error('Could not GET TwelveData resource');
 
         const castOutput =  output as R;
         query.setResponseBody(castOutput);
