@@ -1,7 +1,8 @@
 import builder from './util/URLHelper';
 import endpoints from './util/endpoints';
 import * as apiInterfaces from './types/interfaces';
-import { TDMethod, TDMethodyWithPathParams } from './types/interfaces/Method';
+import { KVPString } from './types/interfaces/Utils';
+import { TDMethod, TDMethodWithPathParams } from './types/interfaces/Method';
 
 class TwelveDataWrapper {
     api_key: string

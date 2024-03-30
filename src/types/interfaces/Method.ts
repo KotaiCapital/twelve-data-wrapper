@@ -32,7 +32,7 @@ export class TDMethod<Q, R> {
     };
 }
 
-export class TDMethodyWithPathParams<Q, R, P extends KVPString> extends TDMethod<Q, R> {
+export class TDMethodWithPathParams<Q, R, P extends KVPString> extends TDMethod<Q, R> {
     private _pathParams: P;
 
     constructor(reqBody: Q, path: string, pathParams: P){
