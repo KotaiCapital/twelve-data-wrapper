@@ -1,3 +1,5 @@
+import { TDDataResponse } from "../Utils";
+
 // For the HTTP route and API parameters
 export interface CryptocurrencyExchangesRequest {
     format?: 'JSON' | 'CSV'; // Optional
@@ -9,4 +11,4 @@ interface CryptocurrencyExchangeData {
     name: string;
 }
 
-export type CryptocurrencyExchangesResponse =  CryptocurrencyExchangeData[];
+export type CryptocurrencyExchangesResponse = TDDataResponse<CryptocurrencyExchangeData[]>;

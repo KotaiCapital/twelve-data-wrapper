@@ -1,3 +1,5 @@
+import { TDDataResponse } from "../Utils";
+
 // For the HTTP route and API parameters
 export interface SymbolSearchRequest {
     symbol: string; // Required parameter
@@ -24,12 +26,9 @@ interface SymbolSearchResultWithPlan extends SymbolSearchResult {
     };
 }
 
-type SymbolSearchResponseWithoutPlan = SymbolSearchResult[];
+type SymbolSearchResponseWithoutPlan = TDDataResponse<SymbolSearchResult[]>;
 
 // For the response with &show_plan=true
-interface SymbolSearchResponseWithPlan {
-    data: SymbolSearchResultWithPlan[];
-    status: string;
-}
+type SymbolSearchResponseWithPlan = TDDataResponse<SymbolSearchResultWithPlan[]>;
 
 export type SymbolSearchResponse = SymbolSearchResponseWithoutPlan | SymbolSearchResponseWithPlan;

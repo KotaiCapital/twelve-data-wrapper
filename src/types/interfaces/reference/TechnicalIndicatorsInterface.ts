@@ -1,3 +1,5 @@
+import { KVP, TDDataResponse } from "../Utils";
+
 // For the HTTP route and API parameters
 export interface TechnicalIndicatorsRequest {
     // No input parameters
@@ -42,4 +44,4 @@ interface TechnicalIndicator {
 }
 
 // The main interface for the API response
-export type TechnicalIndicatorsResponse = TechnicalIndicator[];
+export type TechnicalIndicatorsResponse = TDDataResponse<KVP<TechnicalIndicator>>;

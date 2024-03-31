@@ -4,6 +4,17 @@ export interface KVP<T> {
 
 export type KVPString = KVP<string>;
 
+export interface TDDataResponse<D> {
+    data: D;
+    status: string;
+}
+
+export interface TDDataResponseWithMeta<D> {
+    meta: StockResponseMeta;
+    values: D;
+    status: string;
+}
+
 export interface StockRequestParameters {
     symbol: string;
     exchange?: string;

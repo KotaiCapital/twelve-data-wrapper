@@ -1,3 +1,5 @@
+import { TDDataResponse } from "../Utils";
+
 // For the HTTP route and API parameters
 export interface ForexPairsRequest {
     symbol?: string; // Optional
@@ -15,4 +17,4 @@ export interface ForexPairsRequest {
     currency_quote: string;
 }
 
-export type ForexPairsResponse = ForexPair[];
+export type ForexPairsResponse = TDDataResponse<ForexPair[]>;

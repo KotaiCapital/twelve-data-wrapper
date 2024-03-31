@@ -1,3 +1,5 @@
+import { TDDataResponse } from "../Utils";
+
 // For the individual cryptocurrency pair data and response keys
 interface CryptocurrencyPair {
     symbol: string;
@@ -6,7 +8,7 @@ interface CryptocurrencyPair {
     currency_quote: string;
 }
 
-export type CryptocurrenciesListResponse = CryptocurrencyPair[];
+export type CryptocurrenciesListResponse = TDDataResponse<CryptocurrencyPair[]>;
 
 // For the HTTP route and API parameters
 export interface CryptocurrenciesListRequest {
