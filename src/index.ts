@@ -122,7 +122,7 @@ class TwelveDataWrapper {
         return this.callMethod(new TDMethod<apiInterfaces.ForexPairsRequest, apiInterfaces.ForexPairsResponse>(param, endpoints.forex_pairs));
     }
 
-    async cryptoCurrenciesList(param: apiInterfaces.CryptocurrenciesListRequest): Promise<apiInterfaces.CryptocurrenciesListResponse> {
+    async cryptocurrenciesList(param: apiInterfaces.CryptocurrenciesListRequest): Promise<apiInterfaces.CryptocurrenciesListResponse> {
         return this.callMethod(new TDMethod<apiInterfaces.CryptocurrenciesListRequest, apiInterfaces.CryptocurrenciesListResponse>(param, endpoints.crypto));
     }
 
