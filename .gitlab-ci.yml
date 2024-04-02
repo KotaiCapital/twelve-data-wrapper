@@ -1,0 +1,9 @@
+default:
+  image: node:21-bullseye
+  before_script:
+    - npm install
+
+test-job:
+  stage: test
+  script:
+    - npm run test
