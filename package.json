@@ -7,7 +7,9 @@
     "dev": "nodemon",
     "build": "tsc -p tsconfig.json",
     "bundle": "tsup ./src",
-    "test": "jest --config jestconfig.json"
+    "test": "jest --config jestconfig.json",
+    "prepublish": "npx tsc",
+    "postinstall": "npx tsc"
   },
   "repository": {
     "type": "git",
