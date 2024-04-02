@@ -14,5 +14,6 @@ export interface EndOfDayPriceResponse {
     mic_code: string;
     currency: string;
     datetime: string;
+    timestamp: number;
     close: string;
 }
