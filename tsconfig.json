@@ -13,7 +13,7 @@
       "forceConsistentCasingInFileNames": true, 
       "resolveJsonModule": true,
       "declaration": true,
-      "baseUrl": ".",
+      "baseUrl": "."
     },
     "ts-node": { 
       "files": true,
