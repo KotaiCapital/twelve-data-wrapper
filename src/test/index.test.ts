@@ -249,6 +249,99 @@ test('TimeSeries', async () => {
     expect(tsResponse.status).toBeDefined();
 });
 
+test('ExchangeRate', async () => {
+    let erRequest: types.ExchangeRateRequest = {
+        symbol: 'EUR/USD',
+    };
+
+    let erResponse: types.ExchangeRateResponse = await twelveData.exchangeRate(erRequest);
+
+    expect(erResponse).toBeDefined();
+    expect(erResponse.symbol).toBeDefined();
+    expect(erResponse.rate).toBeDefined();
+    expect(erResponse.timestamp).toBeDefined();
+});
+
+test('CurrencyConversion', async () => {
+    let ccRequest: types.CurrencyConversionRequest = {
+        symbol: 'EUR/USD',
+        amount: 100,
+    };
+
+    let ccResponse: types.CurrencyConversionResponse = await twelveData.currencyConversion(ccRequest);
+
+    expect(ccResponse).toBeDefined();
+    expect(ccResponse.symbol).toBeDefined();
+    expect(ccResponse.rate).toBeDefined();
+    expect(ccResponse.amount).toBeDefined();
+    expect(ccResponse.timestamp).toBeDefined();
+});
+
+test('Quote', async () => {
+    let quoteRequest: types.QuoteRequest = {
+        symbol: 'AAPL',
+    };
+
+    let quoteResponse: types.QuoteResponse = await twelveData.quote(quoteRequest);
+
+    expect(quoteResponse).toBeDefined();
+    expect(quoteResponse.symbol).toBeDefined();
+    expect(quoteResponse.name).toBeDefined();
+    expect(quoteResponse.currency).toBeDefined();
+    expect(quoteResponse.exchange).toBeDefined();
+    expect(quoteResponse.mic_code).toBeDefined();
+    expect(quoteResponse.open).toBeDefined();
+    expect(quoteResponse.high).toBeDefined();
+    expect(quoteResponse.low).toBeDefined();
+    expect(quoteResponse.close).toBeDefined();
+});
+
+test('Real-Time Price', async () => {
+    let rtpRequest: types.RealTimePriceRequest = {
+        symbol: 'AAPL',
+    };
+
+    let rtpResponse: types.RealTimePriceResponse = await twelveData.realTimePrice(rtpRequest);
+
+    expect(rtpResponse).toBeDefined();
+    expect(rtpResponse.price).toBeDefined();
+});
+
+test('EndOfDayPrice', async () => {
+    let eodRequest: types.EndOfDayPriceRequest = {
+        symbol: 'AAPL',
+    };
+
+    let eodResponse: types.EndOfDayPriceResponse = await twelveData.endOfDayPrice(eodRequest);
+
+    expect(eodResponse).toBeDefined();
+    expect(eodResponse.symbol).toBeDefined();
+    expect(eodResponse.exchange).toBeDefined();
+    expect(eodResponse.mic_code).toBeDefined();
+    expect(eodResponse.currency).toBeDefined();
+    expect(eodResponse.datetime).toBeDefined();
+    expect(eodResponse.timestamp).toBeDefined();
+    expect(eodResponse.close).toBeDefined();
+});
+
+/*test('MarketMoversStocks', async () => {
+    let mmRequest: types.MarketMoversRequest = {
+        country: 'US',
+        direction: 'gainers',
+    };
+
+    let mmResponse: types.MarketMoversResponse = await twelveData.marketMoversStocks(mmRequest);
+
+    expect(mmResponse).toBeDefined();
+    expect(mmResponse.exchange).toBeDefined();
+    expect(mmResponse.mover_type).toBeDefined();
+    expect(mmResponse.data).toBeDefined();
+    expect(mmResponse.data.length).toBeGreaterThan(0);
+});*/
+
+/////////////////////////////
+//Fundamentals section
+/////////////////////////////
 test('Logo', async () => {
     let logoRequest: types.LogoRequest = {
         symbol: 'AAPL'
@@ -259,4 +352,295 @@ test('Logo', async () => {
     console.log('Logo Response', logoResponse);
 
     //expect(logoResponse).toBeInstanceOf<types.LogoResponse>();
+});
+
+test('CompanyProfile', async () => {
+    let cpRequest: types.ProfileRequest = {
+        symbol: 'AAPL'
+    };
+
+    let cpResponse: types.ProfileResponse = await twelveData.profile(cpRequest);
+
+    console.log('Company Profile Response', cpResponse);
+
+    //expect(cpResponse).toBeInstanceOf<types.CompanyProfileResponse>();
+});
+
+test('Dividends', async () => {
+    let dividendsRequest: types.DividendsRequest = {
+        symbol: 'AAPL'
+    };
+
+    let dividendsResponse: types.DividendsResponse = await twelveData.dividends(dividendsRequest);
+
+    console.log('Dividends Response', dividendsResponse);
+
+    //expect(dividendsResponse).toBeInstanceOf<types.DividendsResponse>();
+});
+
+test('Splits', async () => {
+    let splitsRequest: types.SplitsRequest = {
+        symbol: 'AAPL'
+    };
+
+    let splitsResponse: types.SplitsResponse = await twelveData.splits(splitsRequest);
+
+    console.log('Splits Response', splitsResponse);
+
+    //expect(splitsResponse).toBeInstanceOf<types.SplitsResponse>();
+});
+
+test('Earnings', async () => {
+    let earningsRequest: types.EarningsRequest = {
+        symbol: 'AAPL'
+    };
+
+    let earningsResponse: types.EarningsResponse = await twelveData.earnings(earningsRequest);
+
+    console.log('Earnings Response', earningsResponse);
+
+    //expect(earningsResponse).toBeInstanceOf<types.EarningsResponse>();
+});
+
+test('EarningsCalendar', async () => {
+    let earningsCalendarRequest: types.EarningsCalendarRequest = {
+        exchange: 'NASDAQ',
+    };
+
+    let earningsCalendarResponse: types.EarningsCalendarResponse = await twelveData.earningsCalendar(earningsCalendarRequest);
+
+    console.log('Earnings Calendar Response', earningsCalendarResponse);
+
+    //expect(earningsCalendarResponse).toBeInstanceOf<types.EarningsCalendarResponse>();
+});
+
+test('IPOCalendar', async () => {
+    let ipoCalendarRequest: types.IPOCalendarRequest = {};
+
+    let ipoCalendarResponse: types.IPOCalendarResponse = await twelveData.ipoCalendar(ipoCalendarRequest);
+
+    console.log('IPO Calendar Response', ipoCalendarResponse);
+
+    //expect(ipoCalendarResponse).toBeInstanceOf<types.IPOCalendarResponse>();
+});
+
+test('Statistics', async () => {
+    let statsRequest: types.StatisticsRequest = {
+        symbol: 'AAPL'
+    };
+
+    let statsResponse: types.StatisticsResponse = await twelveData.statistics(statsRequest);
+
+    console.log('Statistics Response', statsResponse);
+
+    //expect(statsResponse).toBeInstanceOf<types.StatisticsResponse>();
+});
+
+test('InsiderTransactions', async () => {
+    let itRequest: types.InsiderTransactionsRequest = {
+        symbol: 'AAPL'
+    };
+
+    let itResponse: types.InsiderTransactionsResponse = await twelveData.insiderTransactions(itRequest);
+
+    console.log('Insider Transactions Response', itResponse);
+
+    //expect(itResponse).toBeInstanceOf<types.InsiderTransactionsResponse>();
+});
+
+test('IncomeStatement', async () => {
+    let isRequest: types.IncomeStatementRequest = {
+        symbol: 'AAPL'
+    };
+
+    let isResponse: types.IncomeStatementResponse = await twelveData.incomeStatement(isRequest);
+
+    console.log('Income Statement Response', isResponse);
+
+    //expect(isResponse).toBeInstanceOf<types.IncomeStatementResponse>();
+});
+
+test('BalanceSheets', async () => {
+    let bsRequest: types.BalanceSheetRequest = {
+        symbol: 'AAPL'
+    };
+
+    let bsResponse: types.BalanceSheetResponse = await twelveData.balanceSheet(bsRequest);
+
+    console.log('Balance Sheet Response', bsResponse);
+
+    //expect(bsResponse).toBeInstanceOf<types.BalanceSheetsResponse>();
+});
+
+test('CashFlow', async () => {
+    let cfRequest: types.CashFlowRequest = {
+        symbol: 'AAPL'
+    };
+
+    let cfResponse: types.CashFlowResponse = await twelveData.cashFlow(cfRequest);
+
+    console.log('Cash Flow Response', cfResponse);
+
+    //expect(cfResponse).toBeInstanceOf<types.CashFlowResponse>();
+});
+
+test('OptionsExpiration', async () => {
+    let oeRequest: types.OptionsExpirationRequest = {
+        symbol: 'AAPL'
+    };
+
+    let oeResponse: types.OptionsExpirationResponse = await twelveData.optionsExpiration(oeRequest);
+
+    console.log('Options Expiration Response', oeResponse);
+
+    //expect(oeResponse).toBeInstanceOf<types.OptionsExpirationResponse>();
+});
+
+test('OptionsChain', async () => {
+    let ocRequest: types.OptionsChainRequest = {
+        symbol: 'AAPL',
+    };
+
+    let ocResponse: types.OptionsChainResponse = await twelveData.optionsChain(ocRequest);
+
+    console.log('Options Chain Response', ocResponse);
+
+    //expect(ocResponse).toBeInstanceOf<types.OptionsChainResponse>();
+});
+
+test('KeyExecutives', async () => {
+    let keRequest: types.KeyExecutivesRequest = {
+        symbol: 'AAPL'
+    };
+
+    let keResponse: types.KeyExecutivesResponse = await twelveData.keyExecutives(keRequest);
+
+    console.log('Key Executives Response', keResponse);
+
+    //expect(keResponse).toBeInstanceOf<types.KeyExecutivesResponse>();
+});
+
+test('InstitutionalHolders', async () => {
+    let ihRequest: types.InstitutionalHoldersRequest = {
+        symbol: 'AAPL'
+    };
+
+    let ihResponse: types.InstitutionalHoldersResponse = await twelveData.institutionalHolders(ihRequest);
+
+    console.log('Institutional Holders Response', ihResponse);
+
+    //expect(ihResponse).toBeInstanceOf<types.InstitutionalHoldersResponse>();
+});
+
+test('FundHolders', async () => {
+    let fhRequest: types.FundHoldersRequest = {
+        symbol: 'AAPL'
+    };
+
+    let fhResponse: types.FundHoldersResponse = await twelveData.fundHolders(fhRequest);
+
+    console.log('Fund Holders Response', fhResponse);
+
+    //expect(fhResponse).toBeInstanceOf<types.FundHoldersResponse>();
+});
+
+test('DirectHolders', async () => {
+    let dhRequest: types.DirectHoldersRequest = {
+        symbol: 'AAPL'
+    };
+
+    let dhResponse: types.DirectHoldersResponse = await twelveData.directHolders(dhRequest);
+
+    console.log('Direct Holders Response', dhResponse);
+
+    //expect(dhResponse).toBeInstanceOf<types.DirectHoldersResponse>();
+});
+
+//Last changes
+
+/////////////////////////////
+//Analysis section
+/////////////////////////////
+test('EarningsEstimate', async () => {
+    let eeRequest: types.EarningsEstimateRequest = {
+        symbol: 'AAPL'
+    };
+
+    let eeResponse: types.EarningsEstimateResponse = await twelveData.earningsEstimate(eeRequest);
+
+    console.log('Earnings Estimate Response', eeResponse);
+
+    //expect(eeResponse).toBeInstanceOf<types.EarningEstimatesResponse>();
+});
+
+test('RevenueEstimate', async () => {
+    let reRequest: types.RevenueEstimateRequest = {
+        symbol: 'AAPL'
+    };
+
+    let reResponse: types.RevenueEstimateResponse = await twelveData.revenueEstimate(reRequest);
+
+    console.log('Revenue Estimate Response', reResponse);
+
+    //expect(reResponse).toBeInstanceOf<types.RevenueEstimateResponse>();
+});
+
+test('EPSTrend', async () => {
+    let etRequest: types.EPSTrendRequest = {
+        symbol: 'AAPL'
+    };
+
+    let etResponse: types.EPSTrendResponse = await twelveData.epsTrend(etRequest);
+
+    console.log('EPS Trend Response', etResponse);
+
+    //expect(etResponse).toBeInstanceOf<types.EPSTrendResponse>();
+});
+
+test('EPSRevisions', async () => {
+    let erRequest: types.EPSRevisionsRequest = {
+        symbol: 'AAPL'
+    };
+
+    let erResponse: types.EPSRevisionsResponse = await twelveData.epsRevisions(erRequest);
+
+    console.log('EPS Revisions Response', erResponse);
+
+    //expect(erResponse).toBeInstanceOf<types.EPSRevisionsResponse>();
+});
+
+test('GrowthEstimates', async () => {
+    let geRequest: types.GrowthEstimatesRequest = {
+        symbol: 'AAPL'
+    };
+
+    let geResponse: types.GrowthEstimatesResponse = await twelveData.growthEstimates(geRequest);
+
+    console.log('Growth Estimates Response', geResponse);
+
+    //expect(geResponse).toBeInstanceOf<types.GrowthEstimatesResponse>();
+});
+
+test('Recommendations', async () => {
+    let recRequest: types.RecommendationsRequest = {
+        symbol: 'AAPL'
+    };
+
+    let recResponse: types.RecommendationsResponse = await twelveData.recommendations(recRequest);
+
+    console.log('Recommendations Response', recResponse);
+
+    //expect(recResponse).toBeInstanceOf<types.RecommendationsResponse>();
+});
+
+test('PriceTarget', async () => {
+    let ptRequest: types.PriceTargetRequest = {
+        symbol: 'AAPL'
+    };
+
+    let ptResponse: types.PriceTargetResponse = await twelveData.priceTarget(ptRequest);
+
+    console.log('Price Target Response', ptResponse);
+
+    //expect(ptResponse).toBeInstanceOf<types.PriceTargetResponse>();
 });
