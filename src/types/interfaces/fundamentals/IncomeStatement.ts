@@ -1,7 +1,7 @@
 import { StockResponseMeta, StockRequestParametersDateInterval, StockReportingPeriod } from "../Utils";
 
 export interface IncomeStatementRequest extends StockRequestParametersDateInterval {
-    period: StockReportingPeriod;
+    period?: StockReportingPeriod;
 };
 
 export interface IncomeStatementResponse {
