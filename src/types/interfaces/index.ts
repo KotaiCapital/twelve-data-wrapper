@@ -127,6 +127,26 @@ import {
     TechnicalIndicatorsRequest,
     TechnicalIndicatorsResponse,
 } from "./reference";
+import {
+    TDMethod,
+    TDMethodWithPathParams,
+} from "./Method";
+import {
+    SecurityType,
+} from "./SecurityType";
+import {
+    KVP,
+    KVPString,
+    TDDataResponse,
+    TDDataResponseWithMeta,
+    StockRequestParameters,
+    StockRequestParametersDateInterval,
+    StockRequestParametersDateIntervalWithRange,
+    StockReportingPeriod,
+    StockResponseMeta,
+    StockHolder,
+    AnalystRatingChangeType,
+} from "./Utils";
 
 export {
     //Advanced
@@ -248,4 +268,21 @@ export {
     SymbolSearchResponse,
     TechnicalIndicatorsRequest,
     TechnicalIndicatorsResponse,
+    //Method
+    TDMethod,
+    TDMethodWithPathParams,
+    //Security type
+    SecurityType,
+    //Utils
+    KVP,
+    KVPString,
+    TDDataResponse,
+    TDDataResponseWithMeta,
+    StockRequestParameters,
+    StockRequestParametersDateInterval,
+    StockRequestParametersDateIntervalWithRange,
+    StockReportingPeriod,
+    StockResponseMeta,
+    StockHolder,
+    AnalystRatingChangeType,
 }
