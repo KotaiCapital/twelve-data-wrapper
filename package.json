@@ -8,8 +8,7 @@
     "build": "tsc -p tsconfig.json",
     "bundle": "tsup ./src",
     "test": "jest --config jestconfig.json",
-    "prepublish": "npx tsc",
-    "postinstall": "npx tsc"
+    "prepublish": "npx tsc"
   },
   "repository": {
     "type": "git",
