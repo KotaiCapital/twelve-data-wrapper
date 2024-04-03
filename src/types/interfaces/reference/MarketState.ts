@@ -7,7 +7,7 @@ export interface MarketStateRequest {
 }
 
 // The main interface for the API response
-interface MarketStateResponseItem {
+export interface MarketStateResponseItem {
     name: string; // The full name of the exchange
     code: string; // Market Identifier Codes (MIC) under ISO 10383 standard
     country: string; // Country where the exchange is located

@@ -1,7 +1,7 @@
 import { TDDataResponse } from "../Utils";
 
 // For the individual cryptocurrency pair data and response keys
-interface CryptocurrencyPair {
+export interface CryptocurrencyPair {
     symbol: string;
     available_exchanges: string[];
     currency_base: string;

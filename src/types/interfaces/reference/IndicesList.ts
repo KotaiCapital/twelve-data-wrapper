@@ -11,7 +11,7 @@ export interface IndicesListRequest {
 }
 
 // For the individual Index data
-interface IndexData {
+export interface IndexData {
     symbol: string;
     name: string;
     country: string;
@@ -20,7 +20,7 @@ interface IndexData {
     mic_code: string;
 }
 
-interface IndexDataWithPlan extends IndexData {
+export interface IndexDataWithPlan extends IndexData {
     access?: {
         global: string;
         plan: string;

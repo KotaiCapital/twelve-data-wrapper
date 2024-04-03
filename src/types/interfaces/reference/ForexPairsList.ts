@@ -10,7 +10,7 @@ export interface ForexPairsRequest {
 }
 
 // For the individual forex pair data and response keys
- interface ForexPair {
+export interface ForexPair {
     symbol: string;
     currency_group: "Major" | "Minor" | "Exotic" | "Exotic-Cross";
     currency_base: string;

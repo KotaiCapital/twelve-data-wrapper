@@ -32,7 +32,7 @@ interface TintingValues {
 }
 
 // For individual technical indicator
-interface TechnicalIndicator {
+export interface TechnicalIndicator {
     enable: boolean;
     full_name: string;
     description: string;

@@ -12,7 +12,7 @@ export interface ETFListRequest {
 
 
 // For the individual ETF data and response keys
-interface ETFData {
+export interface ETFData {
     symbol: string;
     name: string;
     currency: string;
@@ -21,7 +21,7 @@ interface ETFData {
     country: string;
 }
 
-interface ETFDataWithPlan extends ETFData {
+export interface ETFDataWithPlan extends ETFData {
     access?: {
         global: string;
         plan: string;

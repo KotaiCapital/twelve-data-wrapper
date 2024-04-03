@@ -14,7 +14,7 @@ export interface StockListRequest {
 }
 
 // For the response keys description
-interface StockData {
+export interface StockData {
     symbol: string;
     name: string;
     currency: string;
@@ -25,7 +25,7 @@ interface StockData {
 }
 
 // For the individual stock data
-interface StockDataWithPlan extends StockData {
+export interface StockDataWithPlan extends StockData {
     access?: {
         global: string;
         plan: string;

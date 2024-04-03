@@ -7,7 +7,7 @@ export interface CryptocurrencyExchangesRequest {
 }
 
 // For the individual Cryptocurrency Exchange data
-interface CryptocurrencyExchangeData {
+export interface CryptocurrencyExchangeData {
     name: string;
 }
 

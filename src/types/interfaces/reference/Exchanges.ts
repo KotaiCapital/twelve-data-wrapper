@@ -12,14 +12,14 @@ export interface ExchangesRequest {
 }
 
 // For the individual Exchange data
-interface ExchangeData {
+export interface ExchangeData {
     name: string;
     code: string;
     country: string;
     timezone: string;
 }
 
-interface ExchangeDataWithPlan extends ExchangeData {
+export interface ExchangeDataWithPlan extends ExchangeData {
     access?: {
         global: string;
         plan: string;

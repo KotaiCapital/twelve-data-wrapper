@@ -1,4 +1,5 @@
 import { TDDataResponse } from "../Utils";
+import { SecurityType } from "../SecurityType";
 
 // For the HTTP route and API parameters
 export interface SymbolSearchRequest {
@@ -8,18 +9,18 @@ export interface SymbolSearchRequest {
 }
 
 // For individual search result
-interface SymbolSearchResult {
+export interface SymbolSearchResult {
     symbol: string;
     instrument_name: string;
     exchange: string;
     mic_code: string;
     exchange_timezone: string;
-    instrument_type: string;
+    instrument_type: SecurityType;
     country: string;
     currency: string;
 }
 
-interface SymbolSearchResultWithPlan extends SymbolSearchResult {
+export interface SymbolSearchResultWithPlan extends SymbolSearchResult {
     access?: {
         global: string;
         plan: string;
